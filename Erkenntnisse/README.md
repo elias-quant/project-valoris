@@ -29,6 +29,8 @@ Project Valoris/
 ├── Erkenntnisse/
 │   ├── phase 1,2,3
 │   └──Alle Readme's (weiter verlinkt in diesem Reamde)
+├── data/
+│   └── phase 3 hypothesis results
 ├── main.py                  # Multi-Ticker-Universum + Corporate Actions
 ├── phase4b_total_return.py
 ├── phase5_ai_summary.py     # Lokaler KI-Analyse-Assistent (Ollama)
