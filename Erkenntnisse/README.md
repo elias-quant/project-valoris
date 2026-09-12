@@ -32,8 +32,10 @@ Project Valoris/
 ├── data/
 │   └── phase 3 hypothesis results
 ├── main.py                  # Multi-Ticker-Universum + Corporate Actions
+├── check.py
 ├── phase4b_total_return.py
 ├── phase5_ai_summary.py     # Lokaler KI-Analyse-Assistent (Ollama)
+└──(.gitignore where things like .venv and .key is stored)
 
 ## Methodik in Kürze
 
