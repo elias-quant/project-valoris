@@ -1,7 +1,7 @@
 # Project Valoris
 
 Eine selbstgebaute quantitative Research Engine für US-Aktien (2016–2026): von roher Datenbeschaffung über systematische Bereinigung bis zu statistisch getesteten Markt-Hypothesen — mit jedem Fehler, jedem Umweg und jeder Korrektur offen dokumentiert.
-*disclaimer : AI was used in helping with cleaning up code, making remarks to what which code does and for construction of part of the README's also AI itself is used in This project locally*
+
 
 ## Worum geht's
 
@@ -28,9 +28,9 @@ Project Valoris/
 │   └── preprocessing.py     # Corporate-Actions-Integration (Splits, Dividenden)
 ├── Erkenntnisse/
 │   ├── phase 1,2,3
-│   └──Alle Readme's (weiter verlinkt in diesem Reamde)
+│   └──README je Phase, 1–5 (weiter unten nochmals verlinkt)
 ├── data/
-│   └── phase 3 hypothesis results
+│   └── phase3_hypothesis_results.csv
 ├── main.py                  # Multi-Ticker-Universum + Corporate Actions
 ├── check.py
 ├── phase4b_total_return.py
@@ -75,6 +75,12 @@ Rohdaten sind nicht Teil dieses Repos (Lizenz-/Größenbeschränkungen). Struktu
 - [Phase 4 — Corporate Actions & Survivorship-Bias-Audit](README_Phase4_Ergebnisse.md)
 - [Phase 5 — Lokaler KI-Analyse-Assistent](README_Phase5_Ergebnisse.md)
 
+## Zur KI-Nutzung in diesem Projekt
+
+Claude wurde als Werkzeug für Code-Bereinigung, erklärende Kommentare und Teile der 
+Dokumentation genutzt. Der eigentliche KI-Einsatz *im* Projekt selbst (Phase 5) wurde 
+dagegen bewusst als eigenständiges Experiment behandelt und rigoros getestet, siehe unten.
+
 ## Ausblick
 
 Teil 2 dieses Projekts (in Arbeit): ein Trading-Bot, der die hier validierten Signale mit Transaktionskosten-bereinigtem Backtesting, striktem Risikomanagement und optional TimesFM (Zeitreihen-Vorhersagemodell) kombiniert — erst Paper Trading, dann kontrollierter Live-Betrieb mit kleinem Kapital.
@@ -82,5 +88,3 @@ Teil 2 dieses Projekts (in Arbeit): ein Trading-Bot, der die hier validierten Si
 ---
 
 *Dieses Projekt ist ein persönliches Lernprojekt. Keine Anlageberatung, keine Gewährleistung für Richtigkeit oder zukünftige Handelbarkeit der gezeigten Muster.*
-
-*Vielleicht ist Forschung der Versuch, aus dem, was geschehen ist, etwas über das zu lernen, was geschehen könnte. Und vielleicht ist Weisheit die Erkenntnis, dass zwischen beidem immer ein Rest bleibt, den kein Modell und keine Zahl überbrücken kann. - Elias Jan Emanuel*
