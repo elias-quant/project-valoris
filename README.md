@@ -69,11 +69,11 @@ Rohdaten sind nicht Teil dieses Repos (Lizenz-/Größenbeschränkungen). Struktu
 
 ## Detaillierte Ergebnisse je Phase
 
-- [Phase 1 — Single-Stock Baseline](README_Phase1_Ergebnisse.md)
-- [Phase 2 — Multi-Ticker Universe](README_Phase2_Ergebnisse.md)
-- [Phase 3 — Hypothesen-Bibliothek](README_Phase3_Ergebnisse.md)
-- [Phase 4 — Corporate Actions & Survivorship-Bias-Audit](README_Phase4_Ergebnisse.md)
-- [Phase 5 — Lokaler KI-Analyse-Assistent](README_Phase5_Ergebnisse.md)
+- [Phase 1 — Single-Stock Baseline](https://github.com/elias-quant/project-valoris/blob/erkenntnisse/README_Phase1_Ergebnisse.md)
+- [Phase 2 — Multi-Ticker Universe](https://github.com/elias-quant/project-valoris/blob/erkenntnisse/README_Phase2_Ergebnisse.md)
+- [Phase 3 — Hypothesen-Bibliothek](https://github.com/elias-quant/project-valoris/blob/erkenntnisse/README_Phase3_Ergebnisse.md)
+- [Phase 4 — Corporate Actions & Survivorship-Bias-Audit](https://github.com/elias-quant/project-valoris/blob/erkenntnisse/README_Phase4_Ergebnisse.md)
+- [Phase 5 — Lokaler KI-Analyse-Assistent](https://github.com/elias-quant/project-valoris/blob/erkenntnisse/README_Phase5_Ergebnisse.md)
 
 ## Zur KI-Nutzung in diesem Projekt
 
