@@ -1,6 +1,7 @@
 # Project Valoris
 
 Eine selbstgebaute quantitative Research Engine für US-Aktien (2016–2026): von roher Datenbeschaffung über systematische Bereinigung bis zu statistisch getesteten Markt-Hypothesen — mit jedem Fehler, jedem Umweg und jeder Korrektur offen dokumentiert.
+*disclaimer : AI was used in helping with cleaning up code, making remarks to what which code does and for construction of part of the README's also AI itself is used in This project locally*
 
 ## Worum geht's
 
@@ -25,14 +26,13 @@ Project Valoris/
 ├── src/
 │   ├── data_loader.py       # Kern-Pipeline: Laden, Bereinigen, Split-Adjustierung, Event Study
 │   └── preprocessing.py     # Corporate-Actions-Integration (Splits, Dividenden)
-├── phase1_single_stock.py   # Einzelaktien-Baseline (AAPL)
+├── Erkenntnisse/
+│   ├── phase 1,2,3
+│   └──Alle Readme's
 ├── main.py                  # Multi-Ticker-Universum + Corporate Actions
-├── phase3_hypothesis_library.py
 ├── phase4b_total_return.py
 ├── phase5_ai_summary.py     # Lokaler KI-Analyse-Assistent (Ollama)
 ├── README_Phase1-5_Ergebnisse.md   # Detaillierte Ergebnisdokumente je Phase
-└── Projektplan_v2_PersonalAlphaEngine.md
-```
 
 ## Methodik in Kürze
 
@@ -79,3 +79,5 @@ Teil 2 dieses Projekts (in Arbeit): ein Trading-Bot, der die hier validierten Si
 ---
 
 *Dieses Projekt ist ein persönliches Lernprojekt. Keine Anlageberatung, keine Gewährleistung für Richtigkeit oder zukünftige Handelbarkeit der gezeigten Muster.*
+
+*Vielleicht ist Forschung der Versuch, aus dem, was geschehen ist, etwas über das zu lernen, was geschehen könnte. Und vielleicht ist Weisheit die Erkenntnis, dass zwischen beidem immer ein Rest bleibt, den kein Modell und keine Zahl überbrücken kann. - Elias Jan Emanuel*
