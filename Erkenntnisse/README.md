@@ -28,11 +28,10 @@ Project Valoris/
 │   └── preprocessing.py     # Corporate-Actions-Integration (Splits, Dividenden)
 ├── Erkenntnisse/
 │   ├── phase 1,2,3
-│   └──Alle Readme's
+│   └──Alle Readme's (weiter verlinkt in diesem Reamde)
 ├── main.py                  # Multi-Ticker-Universum + Corporate Actions
 ├── phase4b_total_return.py
 ├── phase5_ai_summary.py     # Lokaler KI-Analyse-Assistent (Ollama)
-├── README_Phase1-5_Ergebnisse.md   # Detaillierte Ergebnisdokumente je Phase
 
 ## Methodik in Kürze
 
