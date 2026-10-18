@@ -703,44 +703,6 @@ def add_momentum_signal(df, formation_tage=252, skip_tage=21, top_quantil=0.8, b
 
     return df
 
-def add_forward_volatility_universe(df, tage_danach=(5, 20)):
-    """
-    Berechnet die realisierte Volatilität (Std.-Abw. der täglichen
-    Renditen) in den N Tagen NACH dem aktuellen Tag, pro Ticker.
-    """
-
-    df = df.sort_values(["ticker", "timestamp_open_utc"]).reset_index(drop=True)
-
-    def forward_vol(gruppe):
-        umgekehrt = gruppe["daily_return"][::-1]
-        for n in tage_danach:
-            roll = umgekehrt.rolling(window=n, min_periods=max(3, n // 2)).std()
-            gruppe[f"fwd_vol_{n}d"] = roll[::-1].shift(-1).values
-        return gruppe
-
-    return df.groupby("ticker", group_keys=False).apply(forward_vol)
-
-
-def add_volatility_regime_signal(df, fenster=5, perzentil=0.8):
-    """
-    Markiert Tage, an denen die Volatilität der letzten `fenster`
-    Handelstage im oberen `perzentil` der HISTORISCHEN Volatilität
-    dieses Tickers liegt (tickerspezifische Schwelle, da manche
-    Aktien grundsätzlich volatiler sind als andere).
-    """
-
-    df = df.sort_values(["ticker", "timestamp_open_utc"]).reset_index(drop=True)
-
-    trailing_vol = (
-        df.groupby("ticker")["daily_return"]
-        .transform(lambda s: s.rolling(window=fenster, min_periods=3).std())
-    )
-
-    schwelle = trailing_vol.groupby(df["ticker"]).transform(lambda s: s.quantile(perzentil))
-
-    df["vola_hoch_aktuell"] = trailing_vol > schwelle
-
-    return df
 
 
 def test_vol_clustering(df, signal_spalte, hypothese_name, horizonte=(5, 20)):

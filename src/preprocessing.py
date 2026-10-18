@@ -46,6 +46,9 @@ def process_dividends(dividends_df, current_sim_date=None):
     Kategorisiert Dividendentypen und wendet optional einen Point-in-Time Filter an.
     """
     df = dividends_df.copy()
+    if df.empty or 'event_date' not in df.columns:
+        raise ValueError("Error: Dividends dataframe is empty or missing 'event_date'.")
+
     df['event_date'] = pd.to_datetime(df['event_date']).dt.strftime('%Y-%m-%d')
 
     if current_sim_date:
