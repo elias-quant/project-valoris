@@ -1,5 +1,4 @@
 import os
-from duckdb import df
 import pandas as pd
 import numpy as np
 
@@ -46,6 +45,9 @@ def process_dividends(dividends_df, current_sim_date=None):
     Kategorisiert Dividendentypen und wendet optional einen Point-in-Time Filter an.
     """
     df = dividends_df.copy()
+    if df.empty or 'event_date' not in df.columns:
+        raise ValueError("Error: Dividends dataframe is empty or missing 'event_date'.")
+
     df['event_date'] = pd.to_datetime(df['event_date']).dt.strftime('%Y-%m-%d')
 
     if current_sim_date:
@@ -57,6 +59,12 @@ def process_dividends(dividends_df, current_sim_date=None):
     df['is_recurring'] = df['dividend_type'].isin(recurring_types).astype(int)
     df['is_special_shock'] = df['dividend_type'].isin(special_types).astype(int)
     df['is_unknown'] = (df['dividend_type'] == 'unknown').astype(int)
+
+    df = (df.groupby(['ticker', 'event_date'], as_index=False)
+            .agg(amount=('amount', 'sum'),
+                 is_recurring=('is_recurring', 'max'),
+                 is_special_shock=('is_special_shock', 'max'),
+                 is_unknown=('is_unknown', 'max')))
 
     return df
 
@@ -76,6 +84,7 @@ def adjust_prices_for_splits(price_df, splits_df):
 
     splits = splits_df.copy()
     splits['event_date'] = pd.to_datetime(splits['event_date']).dt.strftime('%Y-%m-%d')
+    splits = splits.drop_duplicates(subset=['ticker', 'event_date'], keep='last')
 
     df = pd.merge(
         price_df,
@@ -84,6 +93,8 @@ def adjust_prices_for_splits(price_df, splits_df):
         right_on=['ticker', 'event_date'],
         how='left'
     )
+    if len(df) != len(price_df):
+        raise ValueError("Merge hat Zeilen vervielfacht")
     df.drop(columns=['event_date'], inplace=True)
 
     # Reihenfolge sicherstellen, bfill braucht sortierte Zeitreihe pro Ticker
@@ -120,6 +131,8 @@ def merge_dividends_to_prices(price_df, processed_div_df):
         right_on=['ticker', 'event_date'],
         how='left'
     )
+    if len(df) != len(price_df):
+        raise ValueError("Merge hat Zeilen vervielfacht")
 
     df['div_amount'] = df['amount'].fillna(0.0)
     df.drop(columns=['amount', 'event_date'], errors='ignore', inplace=True)
